@@ -23,4 +23,7 @@ li {
     background: lightgreen;
     border-bottom: 2px solid black;
     margin-bottom: 10px;
+    padding-left: 10px;
 }
+
+#buttons {}
