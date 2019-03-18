@@ -54,6 +54,8 @@ function addTodo(event) {
     todos.push(listItem);
     console.log(listItem);
     updateTodosOl();
+    document.querySelector('#new-todo').innerText = listItem.value; // Replace that with the number of items!
+
     resetAllInputs();
 }
 
@@ -63,17 +65,21 @@ function removeTodo(event) {
     const index = document.querySelector('#todo-removal-index').value;
     todos.splice(index - 1, 1);
     updateTodosOl();
+    document.querySelector('#new-todo').innerText = listItem.value;
     resetAllInputs();
 }
 
 function completeTodo(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
-    const index = document.querySelector('#completed-removal-index').value;
+    const index = document.querySelector('#todo-complete-index').value;
     const completedListItem = todos.splice(index - 1, 1);
     completed.push(completedListItem)
     console.log(completed)
     updateCompletedOl();
+    updateTodosOl();
+    document.querySelector('#todo-complete-index').innerText = index.value;
+    document.querySelector('#new-todo').innerText = listItem.value;
 }
 
 
@@ -82,6 +88,7 @@ function clearTodos(event) {
     event.preventDefault();
     const emptyList = [];
     todos = emptyList;
+    document.querySelector('#new-todo').innerText = listItem.value;
 
 }
 
